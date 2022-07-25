@@ -17,6 +17,21 @@ def cars_view(request):
     context={}
     return render(request, template_name,context)
 
+def car_details_view(request):
+    template_name='car-details.html'
+    context={}
+    return render(request, template_name,context)
+
+def pricing_view(request):
+    template_name= 'pricing.html'
+    context={}
+    return render(request, template_name,context)
+
+def services_view(request):
+    template_name='services.html'
+    context={}
+    return render(request, template_name,context)           
+
 def contact_view(request):
     template_name='contact.html'
     context={}

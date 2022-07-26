@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # My INSTALLED_APPS
     'app',
     'account',
+    'widget_tweaks',
     'rest_framework',
 ]
 
@@ -73,6 +74,7 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'account.Account'
 WSGI_APPLICATION = 'carrentals.wsgi.application'
 
 

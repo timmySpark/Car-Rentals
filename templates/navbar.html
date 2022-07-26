@@ -17,9 +17,34 @@
           <li class="nav-item"><a href="{% url 'cars' %}" class="nav-link">Cars</a></li>
           <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
           {% comment %} Login Dropdown {% endcomment %}
+          {% if request.user.is_authenticated  %}
           <li class="nav-item dropdown no-arrow ">
             <a class="nav-link dropdown-toggle cursor-pointer" style="cursor:pointer" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <span class="icon-person_outline" ></span> | Spark
+               <span class="icon-person_outline" ></span> | {{request.user.username}}
+            </a>
+            <ul class="dropdown-menu shadow animated--grow-in" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}">
+                  <i class="icon-user mr-2"></i>
+                  Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                <i class="icon-settings mr-2"></i>
+                Settings</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'logout' %}">
+                <i class="ion-ios-log-out mr-2"></i> 
+                Log Out </a>
+              </li>
+            </ul>
+          </li>
+          {%else%}
+          <li class="nav-item dropdown no-arrow ">
+            <a class="nav-link dropdown-toggle cursor-pointer" style="cursor:pointer" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <span class="icon-person_outline" ></span>
             </a>
             <ul class="dropdown-menu shadow animated--grow-in" aria-labelledby="navbarDropdown">
               <li>
@@ -33,23 +58,18 @@
                 Settings</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{% url 'login' %}">
                 <i class="ion-md-log-in mr-2"></i>
                 Log In</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{% url 'signup' %}">
                 <i class="icon-pencil mr-2"></i>
                 Sign Up</a>
               </li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" href="#">
-                <i class="ion-ios-log-out mr-2"></i> 
-                Log Out </a>
-              </li>
             </ul>
           </li>
+          {%endif%}
         </ul>
       </div>
     </div>

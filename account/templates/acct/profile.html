@@ -1,0 +1,49 @@
+{% extends 'acct/base.html'%}
+{% load static %}
+{% load widget_tweaks %} 
+
+{% block title%} User Profile {% endblock title%}
+
+{% block body %}  
+
+<div class="container-fluid rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://i.imgur.com/0eg0aG0.jpg" width="90"><span class="font-weight-bold">John Doe</span><span class="text-black-50">john_doe12@bbb.com</span><span>United States</span></div>
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex flex-row align-items-center back">
+                        <a href="{% url 'home'%}" class="text-dark" style="text-decoration:none;">
+                        <i class="icon-arrow-left mr-1 mb-1"></i>
+                        <span>Back to home</span>
+                    </a>
+                    </div>
+                    <h6 class="text-right" > User's Profile</h6>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" placeholder="first name" value="John"></div>
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" value="Doe" placeholder="Doe"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" placeholder="Email" value="john_doe12@bbb.com"></div>
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" value="+19685969668" placeholder="Phone number"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" placeholder="address" value="D-113, right avenue block, CA,USA"></div>
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" value="USA" placeholder="Country"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" placeholder="Bank Name" value="Bank of America"></div>
+                    <div class="col-md-6"><input type="text" class="form-control edit-text" value="043958409584095" placeholder="Account Number"></div>
+                </div>
+                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button" id="save">Save Changes</button></div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<script src="{% static 'acct/js/main.js' %}"></script>
+
+{% endblock body %}

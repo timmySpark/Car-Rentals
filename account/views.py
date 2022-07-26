@@ -17,11 +17,12 @@ def sign_up_view(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(username=username,password=raw_password)
+            messages.success(request, 'User registered successfully.')
             return redirect('login')
         else:
-            context = {
-                "signupform":form
-                }
+            messages.error(request, 'Invalid form submission.')
+            messages.error(request, form.errors)
+            context = {"signupform":form }
     else: #GET Request
         form = RegistrationForm()
         context = {"signupform":form}
@@ -74,7 +75,10 @@ def account_view(request):
         form = AccountUpdateForm(request.POST,instance=request.user)
         if form.is_valid():
             form.save()
-            context['success_message'] = "Updated"  
+            messages.success(request, 'Accout has been Updated Successfully.')
+        else:
+            messages.error(request, 'Invalid , Not Updated')
+            messages.error(request, form.errors)
     else:
         form = AccountUpdateForm(
                 initial = {

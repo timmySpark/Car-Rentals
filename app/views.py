@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from account.models import Account
+from app.forms import forms 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home_view(request):
     template_name='index.html'
-    accounts= Account.objects.all()
-    context={"accounts" : accounts,}
+    context={}
     return render(request, template_name,context)
 
 def about_view(request):
@@ -41,6 +40,11 @@ def services_view(request):
 
 def contact_view(request):
     template_name='contact.html'
+    form = ContactForm()
+    if request.POST:
+        form = ContactForm(request.POST or None)
+        if form.is_valid():
+            form.save()
     context={}
     return render(request, template_name,context)           
 

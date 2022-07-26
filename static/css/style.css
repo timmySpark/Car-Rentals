@@ -292,6 +292,8 @@ summary {
 template {
   display: none; }
 
+.user_dropdown{cursor: pointer;}
+
 [hidden] {
   display: none !important; }
 

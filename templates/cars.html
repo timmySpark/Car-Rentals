@@ -55,7 +55,8 @@
 	    						<span class="cat">Cheverolet</span>
 	    						<p class="price ml-auto">$500 <span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a>
+								 <a href="{% url 'car_details' %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
     					</div>
     				</div>
     			</div>
@@ -69,7 +70,8 @@
 	    						<span class="cat">Subaru</span>
 	    						<p class="price ml-auto">$500 <span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> 
+							<a href="{% url 'car_details' %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
     					</div>
     				</div>
     			</div>
@@ -198,7 +200,8 @@
 	    						<span class="cat">Subaru</span>
 	    						<p class="price ml-auto">$500 <span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a>
+								 <a href="{% url 'car_details' %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
     					</div>
     				</div>
     			</div>
@@ -212,7 +215,8 @@
 	    						<span class="cat">Cheverolet</span>
 	    						<p class="price ml-auto">$500 <span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> 
+								<a href="{% url 'car_details' %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
     					</div>
     				</div>
     			</div>
@@ -237,3 +241,16 @@
     <!--=====XXX====OUR=CARS===XXX====-->	
 
    {% endblock body%}
+
+  <!--  Search Bar (Useful) -->
+  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+	<div class="input-group">
+	  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for...">
+	  <div class="input-group-append">
+		<button class="btn btn-primary" type="button">
+		  <i class="icon-search"></i>
+		</button>
+	  </div>
+	</div>
+  </form>
+  <!--  Search Bar -->   

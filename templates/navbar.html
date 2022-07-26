@@ -12,13 +12,47 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
           <li class="nav-item"><a href="{% url 'cars' %}" class="nav-link">Cars</a></li>
           <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-          <li class="nav-item"> <a href="#" class="nav-link"><span class="icon-user" ></span></a></li>
+          {% comment %} Login Dropdown {% endcomment %}
+          <li class="nav-item dropdown no-arrow ">
+            <a class="nav-link dropdown-toggle cursor-pointer" style="cursor:pointer" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <span class="icon-person_outline" ></span> | Spark
+            </a>
+            <ul class="dropdown-menu shadow animated--grow-in" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#">
+                  <i class="icon-user mr-2"></i>
+                  Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                <i class="icon-settings mr-2"></i>
+                Settings</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                <i class="ion-md-log-in mr-2"></i>
+                Log In</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                <i class="icon-pencil mr-2"></i>
+                Sign Up</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" href="#">
+                <i class="ion-ios-log-out mr-2"></i> 
+                Log Out </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 <!--====XX===NAVBAR==XX=====-->
+

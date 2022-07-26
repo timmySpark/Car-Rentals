@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     # My INSTALLED_APPS
     'app',
+    'account',
     'rest_framework',
 ]
 

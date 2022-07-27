@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-  {% load static %}
+{% load static %}
+{% load widget_tweaks %}
   {% block title %}Contact Us{% endblock title %}
     
 	  {% comment %} <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -72,19 +73,22 @@
 				</div>
 			</div>
 			<div class="col-md-8 block-9 mb-md-5">
-			<form action="#" class="bg-light p-5 contact-form">
+			<form method="POST" class="bg-light p-5 contact-form"> {% csrf_token %}
 				<div class="form-group">
-				<input type="text" class="form-control" placeholder="Your Name">
-				</div>
+					{{contact.name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Your Name"}}
+				</div>	
 				<div class="form-group">
-				<input type="text" class="form-control" placeholder="Your Email">
-				</div>
+					{{contact.email|add_class:"form-control"|attr:"type:email"|attr:"placeholder:Your Email"}}
+				</div>	
 				<div class="form-group">
-				<input type="text" class="form-control" placeholder="Subject">
-				</div>
+					{{contact.subject|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Subject"}}
+				</div>	
 				<div class="form-group">
-				<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-				</div>
+					{{contact.message|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Message"}}
+				</div>	
+				
+				
+				
 				<div class="form-group">
 				<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
 				</div>

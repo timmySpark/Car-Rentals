@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from app.forms import * 
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages 
+
+
 # Create your views here.
 
 def home_view(request):
@@ -45,7 +48,12 @@ def contact_view(request):
         form = ContactForm(request.POST or None)
         if form.is_valid():
             form.save()
-    context={}
+            messages.success(request, 'Contact Saved')
+            redirect('contact')
+        else:
+            messages.error(request, 'Invalid Submission , failed')
+
+    context={'contact':form,}
     return render(request, template_name,context)           
 
 

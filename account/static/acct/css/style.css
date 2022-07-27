@@ -595,7 +595,7 @@ label.valid {
 
 /* Profile Stylings */
 
-.form-control:focus {
+/* .form-control:focus {
   box-shadow: none;
   border-color: #01d28e;
 }
@@ -619,5 +619,5 @@ label.valid {
 .profile-button:active {
   background: #047751;
   box-shadow: none;
-}
+} */
 

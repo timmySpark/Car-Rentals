@@ -18,12 +18,16 @@
   </head>
   <body>
     <div class="main">
-      {% comment %} {% include 'messages.html' %} {% endcomment %}
+      {% include 'messages.html' %}
         {% block body %}
         
         
         {% endblock body %}
+      <!-- Jquery -->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
 
+      <!-- bootstrap js -->
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </div>
   </body>
 </html>

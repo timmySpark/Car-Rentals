@@ -17,32 +17,33 @@
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account icon-person"></i></label>
                         {{signupform.firstname|attr:"type:text"|attr:"placeholder:Your FirstName"}}
-                        <span style="color:red">{{signupform.username.errors}}</span>
                     </div>
+                    <span style="color:red">{{signupform.firstname.errors}}</span>
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account icon-person"></i></label>
                         {{signupform.lastname|attr:"type:text"|attr:"placeholder:Your LastName"}}
-                        <span style="color:red">{{signupform.username.errors}}</span>
                     </div>
+                    <span style="color:red">{{signupform.lastname.errors}}</span>
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account icon-user-circle"></i></label>
                         {{signupform.username|attr:"type:text"|attr:"placeholder:Your username"}}
-                        <span style="color:red">{{signupform.username.errors}}</span>
                     </div>
+                    <span style="color:red; list-style-type:none;">{{signupform.username.errors}}</span>
                     <div class="form-group">
                         <label for="email"><i class="zmdi icon-mail_outline"></i></label>
                         {{signupform.email|attr:"type:email"|attr:"placeholder:Your Email"}}
-                        <span style="color:red">{{signupform.email.errors}}</span>
                     </div>
+                    <span style="color:red">{{signupform.email.errors}}</span>
                     <div class="form-group">
                         <label for="pass"><i class="zmdi icon-lock"></i></label>
                         {{signupform.password1|attr:"type:password"|attr:"placeholder:Your Password"}}
-                        <span style="color:red">{{signupform.password1.errors}}</span>
                     </div>
+                    <span style="color:red">{{signupform.password1.errors}}</span>
                     <div class="form-group">
                         <label for="re-pass"><i class="zmdi icon-lock2"></i></label>
                         {{signupform.password2|attr:"type:password"|attr:"placeholder:Repeat Your Password"}}
-                    </div>       
+                    </div>     
+                    <span style="color:red">{{signupform.password2.errors}}</span>
                     <div class="form-group form-button">
                         <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                     </div>

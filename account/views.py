@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages 
 from account.forms import *
 
 # Create your views here.
@@ -46,6 +47,10 @@ def login_view(request):
             if user:
                 login(request,user)
                 return redirect('/')         
+            else:
+                messages.error(request, 'User Log in failed.')
+        else:
+            messages.error(request, 'Username or Password Incorrect, User Log in failed.')        
 
     else:
         form = AccountAuthenticationForm()
@@ -75,7 +80,7 @@ def account_view(request):
         form = AccountUpdateForm(request.POST,instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Accout has been Updated Successfully.')
+            messages.success(request, 'Accout  Updated Successfully.')
         else:
             messages.error(request, 'Invalid , Not Updated')
             messages.error(request, form.errors)

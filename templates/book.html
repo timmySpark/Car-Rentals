@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+  {% load static %}
+  {% load widget_tweaks %}
+
+  {% block title %}About Us{% endblock title %}
+    
+  {% block body %}
+  <!--There is still a lot of editing to do here !!-->
+    <!--=====XXX=====HERO===XXX====-->
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{% static 'images/bg_3.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container-fluid">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span> Book  <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Book Our Cars</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====XXX=====HERO===XXX====-->
+
+    <!--=============RENT / BOOK A CAR===========-->
+    <section class="ftco-section ftco-no-pt bg-light ">
+    	<div class="container">
+    		<div class="row no-gutters">
+    			<div class="col-md-12 featured-top">
+    				<div class="row no-gutters">
+	  					<div class="col-md-4 d-flex align-items-center">
+	  						<form method="POST" class="request-form ftco-animate bg-primary"> {% csrf_token %}
+		          				<h2>Make your trip</h2>
+			    				<div class="form-group">
+			    					<label for="" class="label">Pick-up location</label>
+									{{bookingform.pick_up_location|add_class:"form-control"|attr:"type:text"|attr:"placeholder:City, Airport, Station, etc"}}
+			    				</div>
+			    				<div class="form-group">
+			    					<label for="" class="label">Drop-off location</label>
+									{{bookingform.drop_off_location|add_class:"form-control"|attr:"type:text"|attr:"placeholder:City, Airport, Station, etc"}}
+			    				</div>
+			    				<div class="d-flex">
+									<div class="form-group mr-2">
+									<label for="" class="label">Pick-up date</label>
+									{{bookingform.pick_up_date|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Date"}}
+								</div>
+								<div class="form-group ml-2">
+									<label for="" class="label">Drop-off date</label>
+									{{bookingform.drop_off_date|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Date"}}
+								</div>
+								</div>
+								<div class="form-group">
+									<label for="" class="label">Pick-up time</label>
+									{{bookingform.pick_up_time|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Time"}}
+								</div>
+								<div class="form-group">
+									<input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+								</div>
+			    			</form>
+	  					</div>
+						{% comment %} move to model {% endcomment %}
+	  					<div class="col-md-8 d-flex align-items-center">
+	  						<div class="services-wrap rounded-right w-100">
+	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
+	  							<div class="row d-flex mb-4">
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Choose Your Pickup Location</h3>
+				                </div>
+					            </div>      
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Select the Best Deal</h3>
+					              </div>
+					            </div>      
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+									<div class="services w-100 text-center">
+										<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+											<div class="text w-100">
+												<h3 class="heading mb-2">Reserve Your Rental Car</h3>
+											</div>
+										</div>      
+									</div>
+					        	</div>
+					       		 <p><a href="{% url 'cars' %}" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
+	  					</div>
+	  				</div>
+	  			</div>
+			</div>
+  		</div>
+    </section>
+    <!--===XXX=======RENT / BOOK A CAR=====XXX===-->
+  
+    {%endblock body%}
+
+

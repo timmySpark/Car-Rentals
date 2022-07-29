@@ -51,6 +51,24 @@ def pricing_view(request):
     context={}
     return render(request, template_name,context)
 
+
+@login_required(login_url='acct/login')
+def booking_view(request):
+    template_name= 'book.html'
+    form = BookingForm()
+    if request.POST:
+        form = BookingForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('book')
+        else:
+            messages.error(request, 'Invalid Submission ,Request failed')
+    context={
+        'bookingform':form,
+    }
+    return render(request, template_name,context)    
+
+
 def services_view(request):
     template_name='services.html'
     context={}

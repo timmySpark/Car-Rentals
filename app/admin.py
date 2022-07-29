@@ -3,4 +3,6 @@ from app.models import *
 
 # Register your models here.
 
-admin.site.register(Contact)
+admin.site.register(Book)
+admin.site.register(ContactDetail)
+admin.site.register(ContactInfo)

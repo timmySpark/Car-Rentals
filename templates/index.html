@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-    {% block title %}Car Rentals{% endblock title %}
+{% load widget_tweaks %}
+
+    {% block title %}Fast Cars{% endblock title %}
     
     {% block body %}
     <!--=====XXX=====HERO===XXX====-->
@@ -27,40 +29,40 @@
     </div>
     <!--====XXX=====HERO===XXX====-->
 
-    <!--=============RENT A CAR===========-->
-     <section class="ftco-section ftco-no-pt bg-light">
+    <!--=============RENT / BOOK A CAR===========-->
+    <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row no-gutters">
-    			<div class="col-md-12	featured-top">
+    			<div class="col-md-12 featured-top">
     				<div class="row no-gutters">
 	  					<div class="col-md-4 d-flex align-items-center">
-	  						<form action="#" class="request-form ftco-animate bg-primary">
-		          		<h2>Make your trip</h2>
+	  						<form method="POST" class="request-form ftco-animate bg-primary"> {% csrf_token %}
+		          				<h2>Make your trip</h2>
 			    				<div class="form-group">
 			    					<label for="" class="label">Pick-up location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+									{{bookingform.pick_up_location|add_class:"form-control"|attr:"type:text"|attr:"placeholder:City, Airport, Station, etc"}}
 			    				</div>
 			    				<div class="form-group">
 			    					<label for="" class="label">Drop-off location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+									{{bookingform.drop_off_location|add_class:"form-control"|attr:"type:text"|attr:"placeholder:City, Airport, Station, etc"}}
 			    				</div>
 			    				<div class="d-flex">
-			    					<div class="form-group mr-2">
-			                <label for="" class="label">Pick-up date</label>
-			                <input type="text" class="form-control" id="book_pick_date" placeholder="Date">
-			              </div>
-			              <div class="form-group ml-2">
-			                <label for="" class="label">Drop-off date</label>
-			                <input type="text" class="form-control" id="book_off_date" placeholder="Date">
-			              </div>
-		              </div>
-		              <div class="form-group">
-		                <label for="" class="label">Pick-up time</label>
-		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
-		              </div>
-			            <div class="form-group">
-			              <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
-			            </div>
+									<div class="form-group mr-2">
+									<label for="" class="label">Pick-up date</label>
+									{{bookingform.pick_up_date|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Date"}}
+								</div>
+								<div class="form-group ml-2">
+									<label for="" class="label">Drop-off date</label>
+									{{bookingform.drop_off_date|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Date"}}
+								</div>
+								</div>
+								<div class="form-group">
+									<label for="" class="label">Pick-up time</label>
+									{{bookingform.pick_up_time|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Time"}}
+								</div>
+								<div class="form-group">
+									<input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+								</div>
 			    			</form>
 	  					</div>
 	  					<div class="col-md-8 d-flex align-items-center">
@@ -84,22 +86,22 @@
 					            </div>      
 					          </div>
 					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Reserve Your Rental Car</h3>
-					              </div>
-					            </div>      
-					          </div>
-					        </div>
-					        <p><a href="{% url 'cars' %}" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
-	  						</div>
+									<div class="services w-100 text-center">
+										<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+											<div class="text w-100">
+												<h3 class="heading mb-2">Reserve Your Rental Car</h3>
+											</div>
+										</div>      
+									</div>
+					        	</div>
+					       		 <p><a href="{% url 'cars' %}" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
 	  					</div>
 	  				</div>
-				</div>
+	  			</div>
+			</div>
   		</div>
     </section>
-    <!--===XXX=======RENT A CAR=====XXX===-->
+    <!--===XXX=======RENT / BOOK A CAR=====XXX===-->
 
      <!--=============FEATURED VEHICLES=======-->
     <section class="ftco-section ftco-no-pt bg-light">
@@ -176,7 +178,7 @@
     </section>
     <!--====XXX====FEATURED VEHICLES===XXX====-->
 
-     <!--=============ABOUT===========-->
+    <!--=============ABOUT===========-->
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
@@ -195,7 +197,7 @@
 				</div>
 			</div>
 		</section>
-     <!--======XX=======ABOUT===XX======-->
+    <!--======XX=======ABOUT===XX======-->
 
      <!--=============SERVICES===========-->
 		<section class="ftco-section">
@@ -247,20 +249,20 @@
 			</div>
 		</section>
      <!--=====XX======SERVICES=====XX====-->
-
-    <!--==========BANNER=======-->
-		<section class="ftco-section ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %});">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row justify-content-end">
-					<div class="col-md-6 heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
-            <a href="#" class="btn btn-primary btn-lg">Become A Driver</a>
-          </div>
-				</div>
+	 
+	<!--==========BANNER=======-->
+	<section class="ftco-section ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row justify-content-end">
+				<div class="col-md-6 heading-section heading-section-white ftco-animate">
+		<h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
+		<a href="#" class="btn btn-primary btn-lg">Become A Driver</a>
+		</div>
 			</div>
-		</section>
-     <!--===XXX=====BANNER==XXX===-->
+		</div>
+	</section>
+    <!--===XXX=====BANNER==XXX===-->
 
     <!--=============TESTIMONIALS===========-->
     <section class="ftco-section testimony-section bg-light">

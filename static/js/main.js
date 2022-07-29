@@ -314,11 +314,11 @@
   });
 
 
-	$('#book_pick_date,#book_off_date').datepicker({
+	$('#id_pick_up_date,#id_drop_off_date').datepicker({
 	  'format': 'm/d/yyyy',
 	  'autoclose': true
 	});
-	$('#time_pick').timepicker();
+	$('#id_pick_up_time').timepicker();
 
 
 

@@ -5,14 +5,14 @@
     {% comment %} <!--  nav -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+	      <a class="navbar-brand" href="{% url 'home' %}">Car<span>Book</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
@@ -32,7 +32,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-3 bread">About Us</h1>
           </div>
         </div>
@@ -40,6 +40,7 @@
     </section>
     <!--=====XXX=====HERO===XXX====-->
 
+    <!--=====XXX==ABOUT===XXX====-->
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
@@ -48,7 +49,7 @@
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
 	          	<span class="subheading">About us</span>
-	            <h2 class="mb-4">Welcome to Carbook</h2>
+	            <h2 class="mb-4">Welcome to Fastcars</h2>
 
 	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -58,8 +59,9 @@
 				</div>
 			</div>
 		</section>
+    <!--=====XXX==ABOUT===XXX====-->
 
-      <!--==========BANNER=======-->
+    <!--==========BANNER=======-->
 		<section class="ftco-section ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %});">
 			<div class="overlay"></div>
 			<div class="container">
@@ -71,7 +73,7 @@
 				</div>
 			</div>
 		</section>
-     <!--===XXX=====BANNER==XXX===-->
+    <!--===XXX=====BANNER==XXX===-->
 
     <!--=============TESTIMONIALS===========-->
     <section class="ftco-section testimony-section bg-light">
@@ -147,7 +149,7 @@
     </section>
     <!--========XX=====TESTIMONIALS=====XX====-->
 
-     <!--=============EXPERIENCES===========-->
+    <!--=============EXPERIENCES===========-->
      <section class="ftco-counter ftco-section img bg-light" id="section-counter">
 			<div class="overlay"></div>
     	<div class="container">
@@ -186,7 +188,7 @@
           </div>
         </div>
     	</div>
-    </section>	
-   <!--=====XX======EXPERIENCES===XX======--> 	
+     </section>	
+    <!--=====XX======EXPERIENCES===XX======--> 	
 
   {% endblock body %}

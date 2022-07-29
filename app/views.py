@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from app.forms import * 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
@@ -8,7 +8,15 @@ from django.contrib import messages
 
 def home_view(request):
     template_name='index.html'
-    context={}
+    form = BookingForm()
+    if request.POST:
+        form = BookingForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        else:
+            messages.error(request, 'Invalid Submission ,Request failed')
+    context={'bookingform':form}
     return render(request, template_name,context)
 
 def about_view(request):
@@ -43,17 +51,20 @@ def services_view(request):
 
 def contact_view(request):
     template_name='contact.html'
+    contact_info = ContactInfo.objects.all()
     form = ContactForm()
     if request.POST:
         form = ContactForm(request.POST or None)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Contact Saved')
-            redirect('contact')
+            return redirect('contact')
         else:
             messages.error(request, 'Invalid Submission , failed')
 
-    context={'contact':form,}
+    context={
+        'contact':form,
+        'contact_info':contact_info
+        }
     return render(request, template_name,context)           
 
 

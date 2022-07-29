@@ -65,6 +65,7 @@
 								</div>
 			    			</form>
 	  					</div>
+						{% comment %} move to model {% endcomment %}
 	  					<div class="col-md-8 d-flex align-items-center">
 	  						<div class="services-wrap rounded-right w-100">
 	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
@@ -276,61 +277,19 @@
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_1.jpg' %})">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_2.jpg' %})">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_3.jpg' %})">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_1.jpg' %})">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_1.jpg' %})">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
+				{% for t in testimonials%}
+				<div class="item">
+					<div class="testimony-wrap rounded text-center py-4 pb-5">
+					<div class="user-img mb-2" style="background-image: url('{{t.image.url}}')">
+					</div>
+					<div class="text pt-4">
+						<p class="mb-4">{{t.comment}}</p>
+						<p class="name">{{t.name}}</p>
+						<span class="position">{{t.profession}}</span>
+					</div>
+					</div>
+				</div>
+				{%endfor%}
             </div>
           </div>
         </div>

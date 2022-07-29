@@ -11,3 +11,14 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactDetail
         fields='__all__'
+
+
+class TestimonialForm(forms.ModelForm):
+    class Meta:
+        model = Testimonial
+        exclude = ['created_at']
+
+
+        
+
+

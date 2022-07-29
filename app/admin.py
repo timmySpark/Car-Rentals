@@ -6,3 +6,4 @@ from app.models import *
 admin.site.register(Book)
 admin.site.register(ContactDetail)
 admin.site.register(ContactInfo)
+admin.site.register(Testimonial)

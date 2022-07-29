@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -37,6 +38,9 @@ class ContactDetail(models.Model):
     def __str__(self):
         return f'{self.name} ------------- {self.email}'
 
+    def get_absolute_url(self):
+        return reverse("Contactdetails", kwargs={"pk": self.pk})    
+
 
 class ContactInfo(models.Model):
     detail_icon = models.CharField(max_length=200)
@@ -51,6 +55,25 @@ class ContactInfo(models.Model):
     def __str__(self):
         return f'{self.detail_subject} ------------- {self.details}'
 
+    def get_absolute_url(self):
+        return reverse("ContactInfo_details", kwargs={"pk": self.pk})    
+
     
+class Testimonial(models.Model):
+    name = models.CharField(max_length=100)
+    profession = models.CharField(max_length=100)
+    image =models.ImageField(upload_to='TestimonialImages/')
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = ("Testimonial")
+        verbose_name_plural = ("Testimonials")
+
+    def __str__(self):
+        return f'{self.name} ----------- {self.profession}'
+
+    def get_absolute_url(self):
+        return reverse("Testimonial_detail", kwargs={"pk": self.pk})
 
 

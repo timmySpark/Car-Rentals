@@ -8,6 +8,7 @@ from django.contrib import messages
 
 def home_view(request):
     template_name='index.html'
+    testimonials = Testimonial.objects.all() # move to context_processor.py
     form = BookingForm()
     if request.POST:
         form = BookingForm(request.POST or None)
@@ -16,12 +17,18 @@ def home_view(request):
             return redirect('/')
         else:
             messages.error(request, 'Invalid Submission ,Request failed')
-    context={'bookingform':form}
+    context={
+        'bookingform':form,
+        'testimonials':testimonials,
+    }
     return render(request, template_name,context)
 
 def about_view(request):
     template_name='about.html'
-    context={}
+    testimonials = Testimonial.objects.all()
+    context={
+        'testimonials':testimonials,
+    }
     return render(request, template_name,context)
 
 

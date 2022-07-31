@@ -12,6 +12,7 @@ urlpatterns = [
      path('pricing',pricing_view,name='pricing'),
      path('book',booking_view,name='book'),
      path('services',services_view,name='services'),
+     path('post-testimonials',post_testimonials_view,name='post-testimonials'),
      path('contact',contact_view,name='contact'),
 ]
 

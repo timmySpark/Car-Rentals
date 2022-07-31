@@ -80,6 +80,23 @@ def services_view(request):
     context={}
     return render(request, template_name,context)           
 
+@login_required(login_url='acct/login')
+def post_testimonials_view(request):
+    template_name='post-testimonials.html'
+    form = TestimonialForm()
+    if request.POST:
+        form = TestimonialForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('about')
+        else:
+            messages.error(request, 'Invalid Submission ,Request failed')
+    context={
+        'post_testimonials':form,
+    }
+    return render(request, template_name,context)
+
+
 def contact_view(request):
     template_name='contact.html'
     contact_info = ContactInfo.objects.all()

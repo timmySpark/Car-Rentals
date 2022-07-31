@@ -7,6 +7,7 @@ class BookingForm(forms.ModelForm):
         model = Book 
         exclude = ['created_at']
 
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactDetail

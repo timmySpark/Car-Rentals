@@ -45,21 +45,24 @@
 	<section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row">
+				{%for c in cars%}
     			<div class="col-md-4">
     				<div class="car-wrap rounded ftco-animate">
-    					<div class="img rounded d-flex align-items-end" style="background-image: url({% static 'images/car-1.jpg' %});">
+    					<div class="img rounded d-flex align-items-end" style="background-image: url('{{c.image.url}}');">
     					</div>
     					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
+    						<h2 class="mb-0"><a href="{% url 'car-details' c.slug %}">{{c.car_model}}</a></h2>
     						<div class="d-flex mb-3">
-	    						<span class="cat">Cheverolet</span>
-	    						<p class="price ml-auto">$500 <span>/day</span></p>
+	    						<span class="cat">{{c.car_name}}</span>
+	    						<p class="price ml-auto">${{c.price}} <span>/day</span></p>
     						</div>
     						<p class="d-flex mb-0 d-block"><a href="{% url 'book' %}" class="btn btn-primary py-2 mr-1">Book now</a>
-								 <a href="{% url 'car_details' %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
+								 <a href="{% url 'car-details' c.slug %}" class="btn btn-secondary py-2 ml-1">Details</a></p>
     					</div>
     				</div>
     			</div>
+				{%endfor%}
+{% comment %} 				
     			<div class="col-md-4">
     				<div class="car-wrap rounded ftco-animate">
     					<div class="img rounded d-flex align-items-end" style="background-image: url({% static 'images/car-2.jpg' %});">
@@ -235,7 +238,7 @@
 					</ul>
 					</div>
 				</div>
-        	</div>
+        	</div> {% endcomment %}
     	</div>
     </section>
     <!--=====XXX====OUR=CARS===XXX====-->	

@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -22,6 +23,53 @@ class Book(models.Model):
     def get_absolute_url(self):
         return reverse("Booking_detail", kwargs={"pk": self.pk})
 
+'''
+class Category(models.Model):
+    car_category = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    
+
+    class Meta:
+        verbose_name = ("Category")
+        verbose_name_plural = ("Categories")
+
+    def __str__(self):
+        return self.car_category
+
+
+    def save(self, *args, **kwargs):
+        slug = self.name
+        if not self.slug:
+            self.slug = slugify(slug, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):   
+        return reverse("category_detail", kwargs={"pk": self.pk}) 
+'''
+
+class Cars(models.Model):
+    car_model = models.CharField(max_length=200)
+    car_name=models.CharField(max_length=300)
+    image =models.ImageField(upload_to='CarImages/')
+    price = models.IntegerField()
+    # category= models.ForeignKey(Category, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=500, unique=True, blank=True)
+
+    class Meta:
+        verbose_name = ("Car")
+        verbose_name_plural = ("Cars")
+
+    def __str__(self):
+        return f'{self.car_model} ----------- {self.car_name}'
+
+    def save(self, *args, **kwargs):
+        slug = self.car_name
+        if not self.slug:
+            self.slug = slugify(slug, allow_unicode=True)
+        super().save(*args, **kwargs)     
+
+    def get_absolute_url(self):
+        return reverse("Car_detail", kwargs={"pk": self.pk})
 
 
 class ContactDetail(models.Model):

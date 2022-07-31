@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect , get_object_or_404
 from app.forms import * 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
@@ -35,13 +35,19 @@ def about_view(request):
 @login_required(login_url='acct/login')
 def cars_view(request):
     template_name='cars.html'
-    context={}
+    cars = Cars.objects.all()
+    context={
+        'cars':cars,
+    }
     return render(request, template_name,context)
 
 @login_required(login_url='acct/login')
-def car_details_view(request):
+def car_details_view(request,slug):
     template_name='car-details.html'
-    context={}
+    details = get_object_or_404(Cars,slug=slug)
+    context={
+        'details':details,      
+    }
     return render(request, template_name,context)
 
     

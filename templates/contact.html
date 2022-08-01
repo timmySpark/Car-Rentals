@@ -46,13 +46,13 @@
 		<div class="row d-flex mb-5 contact-info">
 			<div class="col-md-4">
 				<div class="row mb-5">
-					{% for cd in contact_info  %}
+					{% for c in contact_info  %}
 					<div class="col-md-12">
 					<div class="border w-100 p-4 rounded mb-2 d-flex">
 						<div class="icon mr-3">
-							<span class="{{cd.detail_icon}}"></span>
+							<span class="{{c.detail_icon}}"></span>
 						</div>
-						<p><span>{{cd.detail_subject}}:</span> {{cd.details}}</p>
+						<p><span>{{c.detail_subject}}:</span> {{c.details}}</p>
 						</div>
 					</div>
 					{% endfor %}

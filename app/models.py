@@ -8,17 +8,14 @@ class About(models.Model):
     image = models.ImageField(upload_to='AboutImages/')  
     title = models.CharField(max_length=150)
     text  = models.TextField()
-    years_experienced = models.IntegerField()
-    total_cars = models.IntegerField()
-    happy_customers = models.IntegerField()
-    total_branches = models.IntegerField()
+
 
     class Meta:
         verbose_name = ("About Us")
         verbose_name_plural = ("About Fast Cars")
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("About_detail", kwargs={"pk": self.pk})
@@ -126,7 +123,26 @@ class ContactInfo(models.Model):
     def get_absolute_url(self):
         return reverse("ContactInfo_details", kwargs={"pk": self.pk})    
 
+
+'''   
+class Experience(models.Model):
+    years_experienced = models.IntegerField()
+    total_cars = models.IntegerField()
+    happy_customers = models.IntegerField()
+    total_branches = models.IntegerField()
     
+
+    class Meta:
+        verbose_name = ("Experience")
+        verbose_name_plural = ("Our Experiences")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Experience_detail", kwargs={"pk": self.pk})
+'''
+
 class Testimonial(models.Model):
     name = models.CharField(max_length=100)
     profession = models.CharField(max_length=100)

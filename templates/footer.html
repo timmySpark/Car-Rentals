@@ -44,10 +44,10 @@
               <h2 class="ftco-heading-2">Have a Questions?</h2>
               <div class="block-23 mb-3">
                 <ul>
-                  <li><span class="icon icon-map-marker"></span><span class="text">22 Quary Road Ibara , Abeokuta , Ogun State</span></li>
-                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2348 037 217 003</span></a></li>
-                  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">erinletimilehin33@gmail.com</span></a></li>
-                </ul>
+                  {% for c in contact_info  %}
+                  <li><span class="icon {{c.detail_icon}}"></span><span class="text"> {{c.details}} </span></li>                
+                  {% endfor %}
+               </ul>
               </div>
               <p><span>Please write your email and get our amazing updates, news and support</span></p>
                <div class="subscribe">
@@ -62,7 +62,7 @@
                     />
                     <span class="input-group-addon">
                       <button type="submit">
-                        <i class="icon-mail-forward"></i>
+                        <i class="icon-paper-plane-o"></i>
                       </button>
                     </span>
                 </div>

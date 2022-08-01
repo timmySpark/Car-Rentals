@@ -3,7 +3,9 @@ from app.models import *
 
 # Register your models here.
 
+admin.site.register(About)
 admin.site.register(Book)
+admin.site.register(Brands)
 admin.site.register(Cars)
 admin.site.register(ContactDetail)
 admin.site.register(ContactInfo)

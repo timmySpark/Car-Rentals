@@ -188,7 +188,7 @@ h2 {
 
 .main {
   background: #f8f8f8;
-  padding: 20px 0; }
+  }
 
 .clear {
   clear: both; }
@@ -592,32 +592,4 @@ label.valid {
     margin-right: 0px;
     margin-bottom: 10px; } }
 
-
-/* Profile Stylings */
-
-/* .form-control:focus {
-  box-shadow: none;
-  border-color: #01d28e;
-}
-
-.profile-button {
-  background: #01d28e;
-  box-shadow: none;
-  border: none;
-}
-.edit-text[readonly]{border: 2px solid rgba(0,0,0,0)}
-
-.profile-button:hover {
-  background: #047751;
-}
-
-.profile-button:focus {
-  background: #047751;
-  box-shadow: none;
-}
-
-.profile-button:active {
-  background: #047751;
-  box-shadow: none;
-} */
 

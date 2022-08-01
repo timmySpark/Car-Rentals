@@ -61,7 +61,8 @@ def login_view(request):
 @login_required(login_url='acct/login')
 def profile_view(request):
     template_name='acct/profile.html'
-    context={}
+    context={
+    }
     return render(request,template_name,context)                        
 
 def logout_view(request):

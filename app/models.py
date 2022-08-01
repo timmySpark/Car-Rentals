@@ -4,6 +4,26 @@ from django.utils.text import slugify
 
 # Create your models here.
 
+class About(models.Model):
+    image = models.ImageField(upload_to='AboutImages')  
+    title = models.CharField(max_length=150)
+    text  = models.TextField()
+    years_experienced = models.IntegerField()
+    total_cars = models.IntegerField()
+    happy_customers = models.IntegerField()
+    total_branches = models.IntegerField()
+
+    class Meta:
+        verbose_name = ("About Us")
+        verbose_name_plural = ("About Fast Cars")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("About_detail", kwargs={"pk": self.pk})
+
+
 class Book(models.Model):
     pick_up_location = models.CharField(max_length=300)
     drop_off_location = models.CharField(max_length=300)
@@ -23,18 +43,18 @@ class Book(models.Model):
     def get_absolute_url(self):
         return reverse("Booking_detail", kwargs={"pk": self.pk})
 
-'''
-class Category(models.Model):
-    car_category = models.CharField(max_length=100)
+
+class Brands(models.Model):
+    car_brand = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     
 
     class Meta:
-        verbose_name = ("Category")
-        verbose_name_plural = ("Categories")
+        verbose_name = ("Car Brand")
+        verbose_name_plural = ("Car Brands")
 
     def __str__(self):
-        return self.car_category
+        return self.car_brand
 
 
     def save(self, *args, **kwargs):
@@ -45,7 +65,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):   
         return reverse("category_detail", kwargs={"pk": self.pk}) 
-'''
+
 
 class Cars(models.Model):
     car_model = models.CharField(max_length=200)

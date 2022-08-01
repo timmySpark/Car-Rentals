@@ -74,7 +74,7 @@ def booking_view(request):
     }
     return render(request, template_name,context)    
 
-
+ 
 def services_view(request):
     template_name='services.html'
     context={}

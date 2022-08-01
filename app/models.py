@@ -5,7 +5,7 @@ from django.utils.text import slugify
 # Create your models here.
 
 class About(models.Model):
-    image = models.ImageField(upload_to='AboutImages')  
+    image = models.ImageField(upload_to='AboutImages/')  
     title = models.CharField(max_length=150)
     text  = models.TextField()
     years_experienced = models.IntegerField()

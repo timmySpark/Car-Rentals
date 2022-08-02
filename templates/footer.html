@@ -6,13 +6,15 @@
       <div class="row mb-5">
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
+            {% for a in about_us %}
             <h2 class="ftco-heading-2"><a href="#" class="logo">Fast<span>Cars</span></a></h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p>{{a.text|truncatewords:26}}</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
               <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
               <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
               <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
             </ul>
+            {% endfor %}
           </div>
         </div>
         <div class="col-md">
@@ -49,23 +51,14 @@
                   {% endfor %}
                </ul>
               </div>
+              <div>
               <p><span>Please write your email and get our amazing updates, news and support</span></p>
-               <div class="subscribe">
-                {% comment %} remember to push to database {% endcomment %}
-                <form action="about.html#" method="POST">
-                  <div class="input-group stylish-input-group">
-                    <input
-                      type="email"
-                      name="email"
-                      class="form-control"
-                      placeholder="Enter your e-mail here"
-                    />
-                    <span class="input-group-addon">
-                      <button type="submit">
-                        <i class="icon-paper-plane-o"></i>
-                      </button>
-                    </span>
-                </div>
+              {% comment %} remember to push to database {% endcomment %}
+              <form class="form-inline" method="POST"> {% csrf_token %}
+                <input class="form-control" type="search" placeholder="your Email Address" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="icon-paper-plane-o"></i></button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

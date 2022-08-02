@@ -5,8 +5,10 @@ from app.models import *
 
 admin.site.register(About)
 admin.site.register(Book)
+admin.site.register(Banner)
 admin.site.register(Brands)
 admin.site.register(Cars)
 admin.site.register(ContactDetail)
 admin.site.register(ContactInfo)
+admin.site.register(Service)
 admin.site.register(Testimonial)

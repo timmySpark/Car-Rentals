@@ -21,6 +21,23 @@ class About(models.Model):
         return reverse("About_detail", kwargs={"pk": self.pk})
 
 
+class Banner(models.Model):
+    banner_img = models.ImageField(upload_to='BannerImg/')
+    text = models.CharField(max_length = 300)
+    btn_text = models.CharField(max_length=100)
+    
+
+    class Meta:
+        verbose_name = ("Banner")
+        verbose_name_plural =("Banners")
+
+    def __str__(self):
+        return self.text
+
+    def get_absolute_url(self):
+        return reverse("Banner_details", kwargs={"pk": self.pk})
+
+
 class Book(models.Model):
     pick_up_location = models.CharField(max_length=300)
     drop_off_location = models.CharField(max_length=300)
@@ -142,6 +159,23 @@ class Experience(models.Model):
     def get_absolute_url(self):
         return reverse("Experience_detail", kwargs={"pk": self.pk})
 '''
+
+class Service(models.Model):
+    icon = models.CharField(max_length=50)
+    service_title = models.CharField(max_length=100)
+    service_text = models.CharField(max_length=400)
+    
+
+    class Meta:
+        verbose_name =("Service")
+        verbose_name_plural =("Services")
+
+    def __str__(self):
+        return self.service_title
+
+    def get_absolute_url(self):
+        return reverse("Service_detail", kwargs={"pk": self.pk})
+
 
 class Testimonial(models.Model):
     name = models.CharField(max_length=100)

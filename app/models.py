@@ -60,6 +60,7 @@ class Book(models.Model):
 
 class Brands(models.Model):
     car_brand = models.CharField(max_length=100)
+    brand_image = models.ImageField(upload_to="BrandImages/")
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     
 
@@ -72,7 +73,7 @@ class Brands(models.Model):
 
 
     def save(self, *args, **kwargs):
-        slug = self.name
+        slug = self.car_brand
         if not self.slug:
             self.slug = slugify(slug, allow_unicode=True)
         super().save(*args, **kwargs)

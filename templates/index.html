@@ -110,7 +110,7 @@
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
           	<span class="subheading">What we offer</span>
-            <h2 class="mb-2">Feeatured Vehicles</h2>
+            <h2 class="mb-2">Featured Vehicles</h2>
           </div>
         </div>
     		<div class="row">
@@ -201,56 +201,31 @@
 	</section>
 	<!--=====XXX==ABOUT===XXX====-->
 
-	<!--=============SERVICES===========-->
+	<!--===XXX==OUR=SERVICES===XXX====-->
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5">
-		<div class="col-md-7 text-center heading-section ftco-animate">
-		<span class="subheading">Services</span>
-		<h2 class="mb-3">Our Latest Services</h2>
-		</div>
-	</div>
+				<div class="col-md-7 text-center heading-section ftco-animate">
+				<span class="subheading">Services</span>
+				<h2 class="mb-3">Our Wonderful Services</h2>
+				</div>
+			</div>
 			<div class="row">
+	 		 {% for s in services  %}
 				<div class="col-md-3">
 					<div class="services services-2 w-100 text-center">
-			<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
-			<div class="text w-100">
-			<h3 class="heading mb-2">Wedding Ceremony</h3>
-			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			</div>
-		</div>
+						<div class="icon d-flex align-items-center justify-content-center"><span class="{{s.icon}}"></span></div>
+						<div class="text w-100">
+						<h3 class="heading mb-2">{{s.service_title}}</h3>
+						<p>{{s.service_text}}</p>
+		  				</div>
+					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="services services-2 w-100 text-center">
-			<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
-			<div class="text w-100">
-			<h3 class="heading mb-2">City Transfer</h3>
-			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			</div>
-		</div>
-				</div>
-				<div class="col-md-3">
-					<div class="services services-2 w-100 text-center">
-			<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
-			<div class="text w-100">
-			<h3 class="heading mb-2">Airport Transfer</h3>
-			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			</div>
-		</div>
-				</div>
-				<div class="col-md-3">
-					<div class="services services-2 w-100 text-center">
-			<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
-			<div class="text w-100">
-			<h3 class="heading mb-2">Whole City Tour</h3>
-			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-			</div>
-		</div>
-				</div>
+	  		 {% endfor %}
 			</div>
 		</div>
 	</section>
-	<!--=====XX======SERVICES=====XX====-->
+	<!--===XXX==OUR=SERVICES===XXX====-->
 	 
 	<!--==========BANNER=======-->
 	{% for b in banner %}
@@ -300,47 +275,35 @@
     </section>
     <!--========XX=====TESTIMONIALS=====XX====-->
   
-    <!--=============EXPERIENCES===========-->
-    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="60">0</strong>
-                <span>Year <br>Experienced</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="1090">0</strong>
-                <span>Total <br>Cars</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="2590">0</strong>
-                <span>Happy <br>Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text d-flex align-items-center">
-                <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
-              </div>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>	
-   <!--=====XX======EXPERIENCES===XX======-->  
+
+   <!--=============FEATURED VEHICLES=======-->
+   <section class="ftco-section ftco-no-pt bg-light">
+	<div class="container">
+		<div class="row justify-content-center">
+	  <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+		  <span class="subheading">Car Brands</span>
+		<h2 class="mb-2">Featured Brands</h2>
+	  </div>
+	</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="carousel-car owl-carousel">
+					{% for cb in car_brands %}
+					<div class="item">
+						<div class="car-wrap rounded ftco-animate">
+							<a href="#">
+							<div class="img rounded d-flex align-items-end" style="background-image: url({{cb.brand_image.url}});">
+							</div>
+							</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+   </section>
+   <!--====XXX====FEATURED VEHICLES===XXX====-->
 
    {% endblock body %}
   

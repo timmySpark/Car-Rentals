@@ -153,4 +153,33 @@
      </section>	
     <!--=====XX======EXPERIENCES===XX======--> 	
 
+    <!--=============FEATURED VEHICLES=======-->
+   <section class="ftco-section ftco-no-pt bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          <span class="subheading">Car Brands</span>
+          <h2 class="mb-2">Featured Brands</h2>
+        </div>
+     </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="carousel-car owl-carousel">
+            {% for cb in car_brands %}
+            <div class="item">
+              <div class="car-wrap rounded ftco-animate">
+                <a href="#">
+                <div class="img rounded d-flex align-items-end" style="background-image: url({{cb.brand_image.url}});">
+                </div>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+    <!--====XXX====FEATURED VEHICLES===XXX====-->
+
   {% endblock body %}

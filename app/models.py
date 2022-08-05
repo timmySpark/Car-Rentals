@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-from multiselectfield import MultiSelectField
+# from multiselectfield import MultiSelectField
 
 # Create your models here.
 
@@ -83,15 +83,26 @@ class Brands(models.Model):
         return reverse("category_detail", kwargs={"pk": self.pk}) 
 
 
-class Cars(models.Model):
+class Features(models.Model):
+    features = models.CharField(max_length=500)
     
+
+    class Meta:
+        verbose_name = ("Feature")
+        verbose_name_plural = ("Features")
+
+    def __str__(self):
+        return self.features
+
+
+class Cars(models.Model):
     car_make = models.ForeignKey(Brands,on_delete=models.CASCADE)
     car_model = models.CharField(max_length=200)
     image =models.ImageField(upload_to='CarImages/')
-    price = models.IntegerField()
     description = models.TextField()
-    # features =
-    # category= models.ForeignKey(Category, on_delete=models.CASCADE)
+    features =models.ManyToManyField(Features)
+    year = models.IntegerField()
+    price = models.IntegerField()
     slug = models.SlugField(max_length=500, unique=True, blank=True)
 
     class Meta:

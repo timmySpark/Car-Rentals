@@ -95,6 +95,21 @@ class Features(models.Model):
         return self.features
 
 
+
+class MainSpecs(models.Model):
+    icon = models.CharField(max_length=20)
+    spec = models.CharField(max_length=500)
+    spec_value = models.CharField(max_length=400)
+    
+
+    class Meta:
+        verbose_name = ("Main Spec")
+        verbose_name_plural = ("Main Specs")
+
+    def __str__(self):
+        return self.spec
+
+
 class Cars(models.Model):
     car_make = models.ForeignKey(Brands,on_delete=models.CASCADE)
     car_model = models.CharField(max_length=200)

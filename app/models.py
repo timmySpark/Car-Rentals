@@ -111,6 +111,7 @@ class MainSpecs(models.Model):
 
 class CarType(models.Model):
     car_type = models.CharField(max_length=400)
+    type_image = models.ImageField(upload_to="CarTypeImages/")
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     
 
@@ -132,14 +133,14 @@ class CarType(models.Model):
 
 
 class Cars(models.Model):
-    car_make = models.ForeignKey(Brands,on_delete=models.CASCADE)
     car_model = models.CharField(max_length=200)
+    car_make = models.ForeignKey(Brands,on_delete=models.CASCADE)
+    car_type = models.ForeignKey(CarType,on_delete=models.CASCADE,null=True)
     image =models.ImageField(upload_to='CarImages/')
     description = models.TextField()
     features =models.ManyToManyField(Features)
     year = models.IntegerField()
     price = models.IntegerField()
-    car_type = models.ForeignKey(CarType,on_delete=models.CASCADE,null=True)
     slug = models.SlugField(max_length=500, unique=True, blank=True)
 
     class Meta:

@@ -31,21 +31,23 @@
       		</div>
       	</div>
       	<div class="row">
+			{% comment %} {% for m in main_specs%}
       		<div class="col-md d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services">
-              <div class="media-body py-md-4">
-              	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dashboard"></span></div>
-	              	<div class="text">
-		                <h3 class="heading mb-0 pl-3">
-		                	Mileage
-		                	<span>40,000</span>
-		                </h3>
-	                </div>
-                </div>
-              </div>
-            </div>      
+				<div class="media block-6 services">
+				<div class="media-body py-md-4">
+					<div class="d-flex mb-3 align-items-center">
+						<div class="icon d-flex align-items-center justify-content-center"><span class="{{m.icon}}"></span></div>
+						<div class="text">
+							<h3 class="heading mb-0 pl-3">
+								{{m.specs}}
+								<span>{{m.spec_value}}</span>
+							</h3>
+						</div>
+					</div>
+				</div>
+				</div>      
           </div>
+		  {% endfor%} {% endcomment %}
           <div class="col-md d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services">
               <div class="media-body py-md-4">

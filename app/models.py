@@ -94,8 +94,7 @@ class Features(models.Model):
     def __str__(self):
         return self.features
 
-
-
+'''
 class MainSpecs(models.Model):
     icon = models.CharField(max_length=20)
     spec = models.CharField(max_length=500)
@@ -108,6 +107,28 @@ class MainSpecs(models.Model):
 
     def __str__(self):
         return self.spec
+'''
+
+class CarType(models.Model):
+    car_type = models.CharField(max_length=400)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    
+
+    class Meta:
+        verbose_name = ("Car Type")
+        verbose_name_plural = ("Car Types")
+
+    def __str__(self):
+        return self.car_type
+
+    def save(self, *args, **kwargs):
+        slug = self.car_type
+        if not self.slug:
+            self.slug = slugify(slug, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("CarType_detail", kwargs={"pk": self.pk})
 
 
 class Cars(models.Model):
@@ -118,6 +139,7 @@ class Cars(models.Model):
     features =models.ManyToManyField(Features)
     year = models.IntegerField()
     price = models.IntegerField()
+    car_type = models.ForeignKey(CarType,on_delete=models.CASCADE,null=True)
     slug = models.SlugField(max_length=500, unique=True, blank=True)
 
     class Meta:

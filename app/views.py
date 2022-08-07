@@ -41,8 +41,10 @@ def cars_view(request):
 def car_details_view(request,slug):
     template_name='car-details.html'
     details = get_object_or_404(Cars,slug=slug)
+    # main_specs = MainSpecs.objects.all()
     context={
-        'details':details,      
+        'details':details,     
+        # 'main_specs':main_specs, 
     }
     return render(request, template_name,context)
 

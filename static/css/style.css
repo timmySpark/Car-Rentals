@@ -9965,3 +9965,47 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+    /* Service Stylings */
+
+  .car-types {
+    width: 152px;
+    height: 152px;
+    border: 1px solid #c8cacc;
+    user-select: none;
+    padding: 20px 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+  
+.by_brand {
+    margin-top: 50px;
+}
+  
+.type-link {
+    color: black;
+    text-decoration: none;
+}
+  
+  
+.car-types:hover {
+    color: black;
+    box-shadow: 1px 1px 10px black;
+}
+  
+.type-label {
+    margin-bottom: 30px;
+}
+
+.car-icon {
+    width:120px;
+    height:100px;
+    margin-bottom: 13px;
+    display: block;
+}
+
+.car-logo {
+  width:100px;
+  height:100px;
+  padding-right: 10px;
+}

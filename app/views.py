@@ -75,7 +75,12 @@ def booking_view(request):
  
 def services_view(request):
     template_name='services.html'
-    context={}
+    car_type = CarType.objects.all()
+    car_brands = Brands.objects.all()
+    context={
+        'car_types':car_type,
+        'car_brands': car_brands,
+    }
     return render(request, template_name,context)           
 
 @login_required(login_url='acct/login')

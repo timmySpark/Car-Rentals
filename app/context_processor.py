@@ -7,7 +7,7 @@ def fast_cars_renderer(request):
     banner = Banner.objects.all()
     car_brands = Brands.objects.all()
     cars = Cars.objects.all()
-    counter = 2
+    counter = 3
     random_cars = sample(list(cars),counter)
     features = Features.objects.all()
     contact_info = ContactInfo.objects.all()

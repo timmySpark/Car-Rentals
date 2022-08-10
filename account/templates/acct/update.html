@@ -1,0 +1,34 @@
+{% extends 'acct/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block body %}
+ <!--  Update Form -->
+ <section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="{% static 'acct/images/signin-image.jpg' %}" alt="Log in image"></figure>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Update Account</h2>
+                <form method="POST" class="register-form" id="login-form"> {% csrf_token %}
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi icon-mail_outline"></i></label>
+                        {{account_form.email|attr:"type:email"|attr:"placeholder:Your Email"}}
+                    </div>
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account icon-user-circle"></i></label>
+                        {{account_form.username|attr:"type:text"|attr:"placeholder:Your username"}}
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="update" id="update" class="form-submit" value="Save Changes"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}
+

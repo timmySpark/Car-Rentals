@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from account.models import *
 from django.utils.text import slugify
 # from multiselectfield import MultiSelectField
 
@@ -40,6 +41,7 @@ class Banner(models.Model):
 
 
 class Book(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE , blank=True)
     pick_up_location = models.CharField(max_length=300)
     drop_off_location = models.CharField(max_length=300)
     pick_up_date = models.CharField(max_length=50 ,blank=False)
@@ -240,7 +242,7 @@ class Subscriber(models.Model):
         verbose_name_plural = ("Subscribers")
 
     def __str__(self):
-        return self.name
+        return self.email
 
     def get_absolute_url(self):
         return reverse("Subscriber_detail", kwargs={"pk": self.pk})

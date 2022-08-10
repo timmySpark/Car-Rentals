@@ -25,5 +25,5 @@ class SubscriberForm(forms.ModelForm):
     
     class Meta:
         model = Subscriber
-        fields = ('email',)
+        exclude = ['sent_at']
 

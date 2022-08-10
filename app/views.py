@@ -88,7 +88,9 @@ def booking_view(request):
     if request.POST:
         form = BookingForm(request.POST or None)
         if form.is_valid():
-            form.save()
+            c = form.save(commit=False)
+            c.user = request.user
+            c.save()
             return redirect('book')
         else:
             messages.error(request, 'Invalid Submission ,Request failed')
@@ -127,17 +129,17 @@ def post_testimonials_view(request):
     return render(request, template_name,context)
 
 def subscriber_view(request):
-    template_name='index.html'
-    form = SubscriberForm()
+    template_name='footer.html'
+    subform = SubscriberForm()
     if request.POST:
-        form = SubscriberForm(request.POST or None)
-        if form.is_valid():
-            form.save()
+        subform = SubscriberForm(request.POST or None)
+        if subform.is_valid():
+            subform.save()
             return redirect('/')
         else:
             messages.error(request, 'Invalid Submission ,Request failed')
     context={
-        'Subscribers_form':form,
+        'subform':subform,
     }
     return render(request, template_name,context)
 

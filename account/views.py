@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
 from account.forms import *
+from app.models import *
 from django.conf import settings
 # Create your views here.
 
@@ -62,7 +63,10 @@ def login_view(request):
 @login_required(login_url='acct/login')
 def profile_view(request):
     template_name='acct/profile.html'
+    args = request.user
+    booking_history = Book.objects.filter(user=args)
     context={
+        'booking_history':booking_history,
     }
     return render(request,template_name,context)                        
 
@@ -72,7 +76,7 @@ def logout_view(request):
 
 
 def account_view(request):
-    template_name='acct/profile.html'
+    template_name='acct/update.html'
     if not request.user.is_authenticated:
         return redirect('login') 
 
@@ -83,6 +87,7 @@ def account_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Accout  Updated Successfully.')
+            return redirect('profile')
         else:
             messages.error(request, 'Invalid , Not Updated')
             messages.error(request, form.errors)

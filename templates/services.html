@@ -22,9 +22,9 @@
         <div class="by_types">
             <h3 class="type-label">Services by types</h3>
           <div class="row">
-            {% for c in car_types %}   
+            {% for c in cartypes %}   
             <div class="col">
-                <a href="" class="type-link">
+                <a href="{% url 'car-services' c.slug %}" class="type-link">
                     <div class="car-types" >
                         <img class="car-icon" src="{{c.type_image.url}}" alt="SUV vehicles">
                         <span style="color: #053361;">{{c.car_type}}</span>
@@ -38,7 +38,7 @@
       <div class="by_brand">
           <h3 class="type-label">Services by brands</h3>
           <div class="row">          
-            {% for cb in car_brands  %}
+            {% for cb in carbrands  %}
               <div class="col">
                   <a href="" class="type-link">
                       <div class="car-types" >

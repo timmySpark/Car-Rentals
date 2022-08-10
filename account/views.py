@@ -3,9 +3,10 @@ from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
 from account.forms import *
-
+from django.conf import settings
 # Create your views here.
 
+# User = settings.AUTH_USER_MODEL
 def sign_up_view(request):
     template_name = 'acct/signup.html'
     context={}

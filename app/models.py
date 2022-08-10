@@ -231,6 +231,21 @@ class Service(models.Model):
         return reverse("Service_detail", kwargs={"pk": self.pk})
 
 
+class Subscriber(models.Model):
+    email = models.EmailField(max_length=254)
+    sent_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = ("Subscriber")
+        verbose_name_plural = ("Subscribers")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Subscriber_detail", kwargs={"pk": self.pk})
+
+
 class Testimonial(models.Model):
     name = models.CharField(max_length=100)
     profession = models.CharField(max_length=100)
@@ -247,5 +262,6 @@ class Testimonial(models.Model):
 
     def get_absolute_url(self):
         return reverse("Testimonial_detail", kwargs={"pk": self.pk})
+
 
 

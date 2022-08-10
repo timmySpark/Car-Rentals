@@ -65,7 +65,6 @@
 								</div>
 			    			</form>
 	  					</div>
-						{% comment %} move to model {% endcomment %}
 	  					<div class="col-md-8 d-flex align-items-center">
 	  						<div class="services-wrap rounded-right w-100">
 	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
@@ -152,7 +151,7 @@
 			<h2 class="mb-4">{{a.title}}</h2>
 
 			<p>{{a.text}}</p>
-			<p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
+			<p><a href="{% url 'cars' %}" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
 		  </div>
 				</div>
 			</div>
@@ -210,6 +209,9 @@
           <div class="col-md-7 text-center heading-section ftco-animate">
           	<span class="subheading">Testimonial</span>
             <h2 class="mb-3">Happy Clients</h2>
+			{% if request.user.is_authenticated %}            
+			<a href="{% url 'post-testimonials' %}" class="btn text-center btn-primary btn-lg">Post Testimonials</a>
+			{% endif %}
           </div>
         </div>
         <div class="row ftco-animate">
@@ -235,7 +237,6 @@
     </section>
     <!--========XX=====TESTIMONIALS=====XX====-->
   
-
    <!--=============FEATURED VEHICLES=======-->
    <section class="ftco-section ftco-no-pt bg-light">
 	<div class="container">

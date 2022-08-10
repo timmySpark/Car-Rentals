@@ -56,11 +56,13 @@
               {% comment %} remember to push to database {% endcomment %}
               <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="POST"> {%csrf_token%}
                 <div class="input-group">
-                  <input type="text" class="form-control bg-light border-0 small" placeholder="Enter your email">
+                  {% for s in Subscribers_form  %}
+                  {{s.email|add_class:"form-control bg-light border-0 small"|attr:"type=text"|attr:"placeholder=Enter your email"}}
                   <div class="input-group-append">
                   <button class="btn btn-secondary" type="button">
                     <i class="icon-paper-plane-o"></i>
                   </button>
+                  {% endfor %}
                   </div>
                 </div>
                 </form>
